@@ -165,8 +165,15 @@ namespace MJU23v_DTP_T2
 
         private static void WriteThisHelp()
         {
-            Console.WriteLine("hjälp           - skriv ut den här hjälpen");
-            Console.WriteLine("sluta           - avsluta programmet");
+            Console.WriteLine("hjälp                - skriv ut den här hjälpen");
+            Console.WriteLine("sluta                - avsluta programmet");
+            Console.WriteLine("ladda                - ladda listan");
+            Console.WriteLine("lista                - lista hela länklistan");
+            Console.WriteLine("ny                   - lägg till en ny länk");
+            Console.WriteLine("spara                - spara listan");
+            Console.WriteLine("ta bort /'nummer'    - ta bort ett nummer från listan med länkar");
+            Console.WriteLine("öppna grupp /'grupp' - öppna en grupp med länkar samtidigt");
+            Console.WriteLine("öppna länk /'nummer' - öppna endast det angivna numret");
         }
 
         private static string LaodTheLinkList(string filename, string[] arg)
