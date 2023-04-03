@@ -94,13 +94,7 @@ namespace MJU23v_DTP_T2
                 {
                     if (arg[1] == "grupp")
                     {
-                        foreach (Link L in links)
-                        {
-                            if (L.group == arg[2])
-                            {
-                                L.OpenLink();
-                            }
-                        }
+                        OpenTheLinkGroup(arg);
                     }
                     else if (arg[1] == "länk")
                     {
@@ -113,6 +107,17 @@ namespace MJU23v_DTP_T2
                     Console.WriteLine($"Okänt kommando: '{command}'");
                 }
             } while (true);
+        }
+
+        private static void OpenTheLinkGroup(string[] arg)
+        {
+            foreach (Link L in links)
+            {
+                if (L.group == arg[2])
+                {
+                    L.OpenLink();
+                }
+            }
         }
 
         private static string SaveTheLinkList(string filename, string[] arg)
