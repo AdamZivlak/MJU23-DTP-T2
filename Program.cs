@@ -83,20 +83,24 @@ namespace MJU23v_DTP_T2
                 {
                     filename = SaveTheLinkList(filename, arg);
                 }
-                else if (command == "ta")
+                else if (command == "ta") // FIXME: går inte att ta bort länkar
                 {
-                    if (arg[1] == "bort")
+                    if (arg[1] == "bort") // FIXME: "Ta bort 'länk' ger exeption,Unhandled exception. System.FormatException:
+                                          // Input string was not in a correct format.
                     {
                         links.RemoveAt(Int32.Parse(arg[2]));
                     }
                 }
-                else if (command == "öppna")
+                else if (command == "öppna") // FIXME: Unhandled exception. System.IndexOutOfRangeException:
+                                             // Index was outside the bounds of the array. Om man endast skriver öppna får vi exception.
                 {
-                    if (arg[1] == "grupp")
+                    if (arg[1] == "grupp") // FIXME: Unhandled exception. System.IndexOutOfRangeException:
+                                           // Index was outside the bounds of the array. Samma här, endast öppna grupp ger exception.
                     {
                         OpenLinkGroup(arg);
                     }
-                    else if (arg[1] == "länk")
+                    else if (arg[1] == "länk") // FIXME: Unhandled exception. System.IndexOutOfRangeException:
+                                               // Index was outside the bounds of the array. Samma som ovan, endast öppna länk ger exception.
                     {
                         OpenSingleLink(arg);
                     }
