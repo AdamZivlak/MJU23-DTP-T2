@@ -69,7 +69,7 @@ namespace MJU23v_DTP_T2
                 {
                     filename = LaodTheLinkList(filename, arg);
                 }
-                else if (command == "lista")
+                else if (command == "lista") // FIXME: Visar inte URL
                 {
                     int i = 0;
                     foreach (Link L in links)
@@ -84,7 +84,8 @@ namespace MJU23v_DTP_T2
                     filename = SaveTheLinkList(filename, arg);
                 }
                 else if (command == "ta") // FIXME: går inte att ta bort länkar
-                {
+                {                         // FIXME: "ta bort ex. 'Sveriges Radio Nyheter' ger; Unhandled exception. System.FormatException:
+                                          // Input string was not in a correct format.
                     if (arg[1] == "bort") // FIXME: "Ta bort 'länk' ger exeption,Unhandled exception. System.FormatException:
                                           // Input string was not in a correct format.
                     {
