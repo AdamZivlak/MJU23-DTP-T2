@@ -94,12 +94,11 @@ namespace MJU23v_DTP_T2
                 {
                     if (arg[1] == "grupp")
                     {
-                        OpenTheLinkGroup(arg);
+                        OpenLinkGroup(arg);
                     }
                     else if (arg[1] == "länk")
                     {
-                        int ix = Int32.Parse(arg[2]);
-                        links[ix].OpenLink();
+                        OpenSingleLink(arg);
                     }
                 }
                 else
@@ -109,7 +108,13 @@ namespace MJU23v_DTP_T2
             } while (true);
         }
 
-        private static void OpenTheLinkGroup(string[] arg)
+        private static void OpenSingleLink(string[] arg)
+        {
+            int ix = Int32.Parse(arg[2]);
+            links[ix].OpenLink();
+        }
+
+        private static void OpenLinkGroup(string[] arg)
         {
             foreach (Link L in links)
             {
