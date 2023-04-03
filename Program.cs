@@ -10,13 +10,13 @@ namespace MJU23v_DTP_T2
         static List<Link> links = new List<Link>();
         class Link
         {
-            public string category, group, name, descr, link;
-            public Link(string category, string group, string name, string descr, string link)
+            public string category, group, name, description, link;
+            public Link(string category, string group, string name, string description, string link)
             {
                 this.category = category;
                 this.group = group;
                 this.name = name;
-                this.descr = descr;
+                this.description = description;
                 this.link = link;
             }
 
@@ -26,12 +26,12 @@ namespace MJU23v_DTP_T2
                 category = part[0];
                 group = part[1];
                 name = part[2];
-                descr = part[3];
+                description = part[3];
                 link = part[4];
             }
             public void Print(int i)
             {
-                Console.WriteLine($"|{i,-2}|{category,-10}|{group,-10}|{name,-20}|{descr,-40}|");
+                Console.WriteLine($"|{i,-2}|{category,-10}|{group,-10}|{name,-20}|{description,-40}|");
             }
             public void OpenLink()
             {
@@ -43,7 +43,7 @@ namespace MJU23v_DTP_T2
             }
             public string ToString()
             {
-                return $"{category}|{group}|{name}|{descr}|{link}";
+                return $"{category}|{group}|{name}|{description}|{link}";
             }
         }
         static void Main(string[] args)
@@ -53,8 +53,8 @@ namespace MJU23v_DTP_T2
             do
             {
                 Console.Write("> ");
-                string cmd = Console.ReadLine().Trim();
-                string[] arg = cmd.Split();
+                string commandFromConsole = Console.ReadLine().Trim();
+                string[] arg = commandFromConsole.Split();
                 string command = arg[0];
                 if (command == "sluta")
                 {
@@ -156,10 +156,10 @@ namespace MJU23v_DTP_T2
             Console.Write("  ange namn: ");
             string name = Console.ReadLine();
             Console.Write("  ange beskrivning: ");
-            string descr = Console.ReadLine();
+            string description = Console.ReadLine();
             Console.Write("  ange länk: ");
             string link = Console.ReadLine();
-            Link newLink = new Link(category, group, name, descr, link);
+            Link newLink = new Link(category, group, name, description, link);
             links.Add(newLink);
         }
 
