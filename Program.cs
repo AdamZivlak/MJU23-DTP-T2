@@ -72,6 +72,7 @@ namespace MJU23v_DTP_T2
                 if (command == "sluta")
                 {
                     Console.WriteLine("Hej då! Välkommen åter!");
+                    break;
                 }
                 else if (command == "hjälp")
                 {
@@ -161,7 +162,7 @@ namespace MJU23v_DTP_T2
                 }
                 else
                 {
-                    Console.WriteLine("Okänt kommando: '{command}'");
+                    Console.WriteLine($"Okänt kommando: '{command}'");
                 }
             } while (true);
         }
