@@ -83,31 +83,23 @@ namespace MJU23v_DTP_T2
                 {
                     filename = SaveTheLinkList(filename, arg);
                 }
-                else if (command == "ta")
-                {                         // FIXME: "ta bort ex. 'Sveriges Radio Nyheter' ger; Unhandled exception. System.FormatException: Input string was not in a correct format.
-                    try
-                    {
-                        if (arg[1] == "bort") // FIXME: "Ta bort 'länk' ger exeption,Unhandled exception. System.FormatException: Input string was not in a correct format.
-                        {
-                            links.RemoveAt(Int32.Parse(arg[2]));
-                        }
-                    }
-                    catch (IndexOutOfRangeException)
-                    {
-                        Console.WriteLine($"Ett undantag inträffade! Gick inte att ta bort '{arg[0]} {arg[1]}'" + "\n" +
-                            "Glöm inte att ange ett nummer som ska bort!");
-                    }
+                else if (command == "ta") // TODO: Kommando "Ta bort" tar inte bort något, gör en lösning.
+                {
+                    RemoveFromLinkList(arg);
                 }
                 else if (command == "öppna") // FIXME: Unhandled exception. System.IndexOutOfRangeException:
                                              // Index was outside the bounds of the array. Om man endast skriver öppna får vi exception.
+                                             // TODO: Gör en bättre felutskrift än vad vi får nu.
                 {
                     if (arg[1] == "grupp") // FIXME: Unhandled exception. System.IndexOutOfRangeException:
                                            // Index was outside the bounds of the array. Samma här, endast öppna grupp ger exception.
+                                           // TODO: Gör en bättre felutskrift än vad vi får nu.
                     {
                         OpenLinkGroup(arg);
                     }
                     else if (arg[1] == "länk") // FIXME: Unhandled exception. System.IndexOutOfRangeException:
                                                // Index was outside the bounds of the array. Samma som ovan, endast öppna länk ger exception.
+                                               // TODO: Gör en bättre felutskrift än vad vi får nu.
                     {
                         OpenSingleLink(arg);
                     }
@@ -117,6 +109,27 @@ namespace MJU23v_DTP_T2
                     Console.WriteLine($"Okänt kommando: '{command}'");
                 }
             } while (true);
+        }
+
+        private static void RemoveFromLinkList(string[] arg)
+        {
+            try
+            {
+                if (arg[1] == "bort")
+                {
+                    links.RemoveAt(Int32.Parse(arg[2]));
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine($"Ett undantag inträffade! Gick inte att ta bort '{arg[0]} {arg[1]}'" + "\n" +
+                    "Glöm inte att ange ett nummer som ska bort!");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine($"Ett undantag inträffade! Gick inte att ta bort '{arg[0]} {arg[1]} {arg[2]}'" + "\n" +
+                    "Glöm inte att ange ett nummer som ska bort!");
+            }
         }
 
         private static void OpenSingleLink(string[] arg)
