@@ -83,13 +83,19 @@ namespace MJU23v_DTP_T2
                 {
                     filename = SaveTheLinkList(filename, arg);
                 }
-                else if (command == "ta") // FIXME: går inte att ta bort länkar
-                {                         // FIXME: "ta bort ex. 'Sveriges Radio Nyheter' ger; Unhandled exception. System.FormatException:
-                                          // Input string was not in a correct format.
-                    if (arg[1] == "bort") // FIXME: "Ta bort 'länk' ger exeption,Unhandled exception. System.FormatException:
-                                          // Input string was not in a correct format.
+                else if (command == "ta")
+                {                         // FIXME: "ta bort ex. 'Sveriges Radio Nyheter' ger; Unhandled exception. System.FormatException: Input string was not in a correct format.
+                    try
                     {
-                        links.RemoveAt(Int32.Parse(arg[2]));
+                        if (arg[1] == "bort") // FIXME: "Ta bort 'länk' ger exeption,Unhandled exception. System.FormatException: Input string was not in a correct format.
+                        {
+                            links.RemoveAt(Int32.Parse(arg[2]));
+                        }
+                    }
+                    catch (IndexOutOfRangeException)
+                    {
+                        Console.WriteLine($"Ett undantag inträffade! Gick inte att ta bort '{arg[0]} {arg[1]}'" + "\n" +
+                            "Glöm inte att ange ett nummer som ska bort!");
                     }
                 }
                 else if (command == "öppna") // FIXME: Unhandled exception. System.IndexOutOfRangeException:
