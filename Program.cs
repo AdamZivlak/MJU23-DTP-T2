@@ -85,7 +85,16 @@ namespace MJU23v_DTP_T2
                 }
                 else if (command == "ta") // TODO: Kommando "Ta bort" tar inte bort något, gör en lösning.
                 {
-                    RemoveFromLinkList(arg);
+                    try
+                    {
+                        RemoveFromLinkList(arg);
+                    }
+                    catch (IndexOutOfRangeException)
+                    {
+                        Console.WriteLine($"Ett undantag inträffade! Gick inte att ta bort '{arg[0]}'" + "\n" +
+                            "Glöm inte att ange vad som ska bort!");
+                    }
+                    
                 }
                 else if (command == "öppna") // FIXME: Unhandled exception. System.IndexOutOfRangeException:
                                              // Index was outside the bounds of the array. Om man endast skriver öppna får vi exception.
@@ -123,12 +132,21 @@ namespace MJU23v_DTP_T2
             catch (IndexOutOfRangeException)
             {
                 Console.WriteLine($"Ett undantag inträffade! Gick inte att ta bort '{arg[0]} {arg[1]}'" + "\n" +
-                    "Glöm inte att ange ett nummer som ska bort!");
+                    "Glöm inte att ange vad som ska bort!");
             }
             catch (FormatException)
             {
                 Console.WriteLine($"Ett undantag inträffade! Gick inte att ta bort '{arg[0]} {arg[1]} {arg[2]}'" + "\n" +
-                    "Glöm inte att ange ett nummer som ska bort!");
+                    "Glöm inte att ange vad som ska bort!");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine($"Ett undantag inträffade! Gick inte att ta bort '{arg[0]} {arg[1]} {arg[2]}'" + "\n" +
+                    "Glöm inte att ange vad som ska bort!"); 
+            }
+            catch (System.OverflowException)
+            {
+                Console.WriteLine($"Ett undantag inträffade! Ditt tal {arg[2]} var för stort!");
             }
         }
 
