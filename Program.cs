@@ -109,8 +109,8 @@ namespace MJU23v_DTP_T2
                     else if (arg[1] == "länk") // FIXME: Unhandled exception. System.IndexOutOfRangeException:
                                                // Index was outside the bounds of the array. Samma som ovan, endast öppna länk ger exception.
                                                // TODO: Gör en bättre felutskrift än vad vi får nu.
-                    {
-                        OpenSingleLink(arg); // TODO: Unhandled exception. System.OverflowException: Value was either too large or too small for an Int32.
+                    {                         // TODO: Fixa Unhandled exception. System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+                        OpenSingleLink(arg); // TODO: Fixa Unhandled exception. System.OverflowException: Value was either too large or too small for an Int32.
                     }
                 }
                 else
