@@ -110,7 +110,7 @@ namespace MJU23v_DTP_T2
                                                // Index was outside the bounds of the array. Samma som ovan, endast öppna länk ger exception.
                                                // TODO: Gör en bättre felutskrift än vad vi får nu.
                     {
-                        OpenSingleLink(arg);
+                        OpenSingleLink(arg); // TODO: Unhandled exception. System.OverflowException: Value was either too large or too small for an Int32.
                     }
                 }
                 else
